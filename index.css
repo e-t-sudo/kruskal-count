@@ -1,0 +1,25 @@
+*{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+    body{
+        background-color: #f3f3f3;
+    }
+    .card{
+        width: 100px;
+        height: 160px;
+        border-radius: 3px;
+        cursor: pointer;
+        display: inline;
+        margin: 2px;
+    }
+    #shuffle{
+        text-align: center;
+        margin: 5px;
+    }
+    #banner{
+        text-align: center;
+    }
+    #cards{
+        margin: 3px;
+    }
