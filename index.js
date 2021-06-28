@@ -1,5 +1,3 @@
-
-<script>
     let suits = ["C", "H", "S", "D"]; //clubs, hearts, spades, diamonds (CHaSeD stack)
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; //"Ace to King"
     let div = document.getElementById("cards");
