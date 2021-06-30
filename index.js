@@ -2,6 +2,7 @@
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; //"Ace to King"
     let div = document.getElementById("cards");
     let orderedDeck = [];
+    let deck = [];
     for(let i=0; i<suits.length; i++){
         for(let j=0; j<values.length; j++){
             orderedDeck.push(values[j]+","+suits[i]);
@@ -51,35 +52,17 @@
         "12": 1,
         "13": 1
     }
-    function flipPrediction(starter){
-        let numericalValue = values.indexOf(shuffledDeck[starter].split(",")[0])+1;
+    function flipPrediction(){
+        let numericalValue = values.indexOf(shuffledDeck[0].split(",")[0])+1;
         let jumpValue = jumps[numericalValue];
         x = jumpValue;
         while(x<=51){
+            console.log(x);
             finalIndex = x;
             x = x + jumps[values.indexOf(shuffledDeck[x].split(",")[0])+1];
         }
         let predCard = shuffledDeck[finalIndex].split(",").join("");
         document.getElementById("prediction").setAttribute("href", "#"+predCard)
-        return predCard;
+        turnCard(predCard);
     }
-    turnCard(flipPrediction(0));
-    function oddsOfSuccess(){
-        let results = [];
-        for(let i=0; i<10; i++){
-            results.push(flipPrediction(i))
-        }
-        let success = 1;
-        for(let i=1; i<10; i++){
-            if(results[0]==results[i]) success++;
-        }
-        return success;
-    }
-    document.getElementById("odds-for-success").innerText += oddsOfSuccess()*10+"%";
-    if(oddsOfSuccess()>7){
-        document.getElementById("odds-for-success").style.color = "#009900";
-    }else if(oddsOfSuccess()>5){
-        document.getElementById("odds-for-success").style.color = "#000099";
-    }else{
-        document.getElementById("odds-for-success").style.color = "#ff0000";
-    }
+    flipPrediction();
