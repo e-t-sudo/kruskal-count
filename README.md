@@ -9,8 +9,7 @@ The mathematical modelling of the system "is left as an exercise" ;)
   
 I just used the good old brute force approach to arrive at a rough approximation for the likelihood of success in this simple demo of the Kruskal count. It basically works as follows :
   
-`IS_SUCCESSFULL() {`<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Randomly generate a card sequence`<br>
+`IS_SUCCESSFULL(card_sequence) {`<br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Go through all the possible card choices(ten in total) that the user can make and their final results`<br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Count the number of times the final result matches the predicted result`<br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Calculate the odds of success in each stage`<br>
@@ -20,7 +19,7 @@ I just used the good old brute force approach to arrive at a rough approximation
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `return false`<br>
  `}`
  
-Using the above function to check a large number of card shuffles, following results were obtained: 
+Using the above function to check a large number of randomly generated card shuffles, following results were obtained: 
   
   <table>
     <thead><th>Number of shuffles checked</th><th>Shuffles which work for all card choices</th><th>Empirical probability of success</th></thead>
@@ -33,5 +32,5 @@ Using the above function to check a large number of card shuffles, following res
     </tbody>
   </table>
   
-  As the number of checks is increased, the average probability of a <b>certain success</b>(success of the event being independent of the intital card choices), comes out to be a little more than 84%. If we also take into account the occasional hits which are dependent on the card that is intitially picked, the odds shoot up to greater than 90%, which is quite impressive for self-working effect!
+  As the number of checks is increased, the average probability of a <b>certain success</b>(success of the event being independent of the intital card choices), comes out to be a little more than 84%. If we also take into account the occasional hits which are dependent on the card that is intitially picked, the odds shoot past the 90% mark, which is quite impressive for a self-working effect!
   
